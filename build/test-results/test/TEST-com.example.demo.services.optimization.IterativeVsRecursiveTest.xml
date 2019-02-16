@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.demo.services.optimization.IterativeVsRecursiveTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-02-16T17:56:24" hostname="APL-0067.fritz.box" time="0.003">
+  <properties/>
+  <testcase name="exceptionForCapasityIterativeTest" classname="com.example.demo.services.optimization.IterativeVsRecursiveTest" time="0.001"/>
+  <testcase name="exceptionForCapasityRecursiveTest" classname="com.example.demo.services.optimization.IterativeVsRecursiveTest" time="0.0"/>
+  <testcase name="exceptionforJuniorIterativeTest" classname="com.example.demo.services.optimization.IterativeVsRecursiveTest" time="0.0"/>
+  <testcase name="exceptionforJuniorRecursiveTest" classname="com.example.demo.services.optimization.IterativeVsRecursiveTest" time="0.001"/>
+  <testcase name="iterativeVsRecursiveTest" classname="com.example.demo.services.optimization.IterativeVsRecursiveTest" time="0.0"/>
+  <testcase name="optimizeIterativeTest" classname="com.example.demo.services.optimization.IterativeVsRecursiveTest" time="0.0"/>
+  <testcase name="optimizeRecursiveTest" classname="com.example.demo.services.optimization.IterativeVsRecursiveTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

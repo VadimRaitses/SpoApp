@@ -1,0 +1,78 @@
+buildscript {
+    dependencies {
+        classpath 'com.amazonaws:aws-java-sdk-autoscaling:1.10.69'
+        classpath 'org.akhikhl.gretty:gretty:2.0.0'
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+        classpath 'org.ajoberstar:grgit:1.1.0'
+    }
+}
+
+
+plugins {
+    id 'org.springframework.boot' version '2.1.2.RELEASE'
+    id 'java'
+    id 'application'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'idea'
+apply plugin: 'docker'
+
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClassName = 'com.example.demo.DemoApplication'
+    executableDir = './build'
+}
+
+group = 'com.example'
+version = '0.1.0'
+sourceCompatibility = '1.8'
+
+bootJar {
+    baseName = 'gs-spring-boot'
+    version = '0.1.0'
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
+    testCompile("junit:junit")
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
+
+task startDocker(type: JavaCompile) {
+    source = fileTree(dir: '.', include: '*/*.java')
+    classpath = files('.')
+    destinationDir = file('.')
+    File dockerFile = new File("./Dockerfile")
+    if (dockerFile.exists())
+        dockerFile.delete()
+    dockerFile.createNewFile()
+    dockerFile.withWriter('UTF-8') { writer ->
+        print("${version}")
+        writer.writeLine('FROM openjdk:8-jre')
+        writer.writeLine('ADD /build/libs/gs-spring-boot-0.1.0.jar /cpo.jar')
+        writer.writeLine('CMD ["java", "-jar", "cpo.jar"]')
+    }
+
+    "docker build -t spo:latest .".execute()
+    "docker run -d --name spo_app -p 8080:8080 spo:latest".execute()
+}
+
+task stopDocker(){
+    "docker stop spo_app".execute()
+    "docker rm -f spo_app".execute()
+
+
+}
