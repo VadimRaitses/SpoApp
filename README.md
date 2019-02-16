@@ -1,23 +1,22 @@
 # SpoApp
 SpoOptimizationProblem
 
-
 SpoOptimization project help to solve unit optimization problem.
 
 Based on java 8 and Springboot framework, project provide two different algorithms to solve problem
 recursive and iterative. 
 
-####Run
+**Run**
 
 * Clone repository to local machine then execute **./gradlew build** to build project.
 * Project executable could be run as java on local machine or using **docker** (gradle tasks).
 * To run inside  docker container use  **./gradlew  clean build startDocker** 
 * To stop docker container use **./gradlew stopDocker**
 * Project could be run locally **./gradlew  clean build && java -jar build/libs/gs-spring-boot-0.1.0.jar**
+* Run ./gradlew test for tests.
 
 
-
-#####Project exposed to 8080 port as docker and as local build.
+*Project exposed to 8080 port as docker and as local build.*
 
 Available two different API for different algorithm execution types /recursiveStrategy and /iterativeStrategy
 
