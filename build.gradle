@@ -58,7 +58,6 @@ task startDocker(type: JavaCompile) {
         dockerFile.delete()
     dockerFile.createNewFile()
     dockerFile.withWriter('UTF-8') { writer ->
-        print("${version}")
         writer.writeLine('FROM openjdk:8-jre')
         writer.writeLine('ADD /build/libs/gs-spring-boot-0.1.0.jar /cpo.jar')
         writer.writeLine('CMD ["java", "-jar", "cpo.jar"]')

@@ -23,7 +23,6 @@ public class IterativeOptStrategy<T extends Room> extends AbstractStrategyBase {
         int maxSenior = (int) Math.ceil(capacity / senior);
         int maxJunior = (int) Math.ceil(capacity / junior);
         Room bestRoom = new Room();
-        List l = new ArrayList();
         int sum = 0;
         for (int i = this.minimalSeniorAppearance; i < maxSenior + this.minimalSeniorAppearance; i++) {
             sum += senior * i;

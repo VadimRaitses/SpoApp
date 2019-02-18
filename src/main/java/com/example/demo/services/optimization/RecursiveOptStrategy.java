@@ -17,8 +17,8 @@ public class RecursiveOptStrategy<T extends Room> extends AbstractStrategyBase {
     private Room rec(int capacity, Room room, int senior, int junior) {
         if (capacity <= 0)
             return room;
-        Room roomSenior = rec(capacity - senior, room.clone().incrementSeniorAmount().setWeight(senior), senior, junior).clone();
-        Room roomJunior = rec(capacity - junior, room.clone().incrementJuniorAmount().setWeight(junior), senior, junior).clone();
+        Room roomSenior = rec(capacity - senior, room.clone().incrementSeniorAmount().setWeight(senior), senior, junior);
+        Room roomJunior = rec(capacity - junior, room.clone().incrementJuniorAmount().setWeight(junior), senior, junior);
         if (roomSenior.getWeight() >= capacity &&
                 roomJunior.getWeight() >= capacity &&
                 roomJunior.getSeniorAmount() >= this.minimalSeniorAppearance &&
@@ -26,7 +26,5 @@ public class RecursiveOptStrategy<T extends Room> extends AbstractStrategyBase {
             if (roomSenior.getWeight() > roomJunior.getWeight())
                 return roomJunior;
         return roomSenior;
-
     }
-
 }
