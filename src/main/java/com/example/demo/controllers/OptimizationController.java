@@ -30,7 +30,7 @@ public class OptimizationController {
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             logger.debug(e.getLocalizedMessage());
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

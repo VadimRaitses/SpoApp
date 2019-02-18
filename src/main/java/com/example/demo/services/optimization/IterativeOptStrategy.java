@@ -29,7 +29,6 @@ public class IterativeOptStrategy<T extends Room> extends AbstractStrategyBase {
             for (int j = 0; j < maxJunior; j++) {
                 if (j != 0)
                     sum += junior;
-
                 if (sum >= capacity) {
                     if (bestRoom.getWeight() < sum && bestRoom.getWeight() < capacity)
                         bestRoom = new Room(i, j, sum, i + j);
