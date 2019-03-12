@@ -1,7 +1,7 @@
-# SpoApp
-SpoOptimizationProblem
+# UnitOptimisationApi
+UnitOptimisationApi 
 
-SpoOptimization project help to solve unit optimization problem.
+Unint Optimization project help to solve unit optimisation problem.
 
 Based on java 8 and Springboot framework, project provide two different algorithms to solve problem
 recursive and iterative. 
